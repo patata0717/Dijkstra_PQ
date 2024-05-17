@@ -29,6 +29,7 @@ Fibonaccie heap參考cormen的psuedo code。
 Example參考[ref2](https://www.youtube.com/watch?v=CerlT7tTZfY)。
 
 Time complexity: O(E+VlogV) (amortized)
+
 Space complexity: O(V+E) AdjLists—O(2V), EdgeList—O(E), Fibonacciheap—O(E)
 
 ## Fibonacci heap
@@ -128,7 +129,7 @@ typedef struct sGNode {
 
 ## Validation
 
-用ref2的例子，手動AddEdge幹入input，結果如下：
+用ref2的例子，手動AddEdge輸入input，結果如下：
 
 |V| = 8, |E| = 11
 
