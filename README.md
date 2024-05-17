@@ -1,2 +1,1 @@
-# dijkstra
-dijkstra algorithm using priority queue
+# Dijkstra演算法，以priority queue實作
