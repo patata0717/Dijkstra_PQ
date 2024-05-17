@@ -57,7 +57,7 @@ Output: Dist array, predecessor array
 1. Visit src, set dist of src = 0
 2. Using adjLists to traverse all connected vertices:
     - If unvisited, calculate dist from src, Insert() to priority queue
-    - If visited, update dist, DecreasKey() to update FB key
+    - If visited, update dist, DecreasKey() to update FH key
 3. ExtractMin() to find the current unvisit vertex closest to src, update dist array(don't do DecreaseKey()), go to step 2, terminate when all vertices are visited
 
 所以我們會用到Insert()、ExtractMin()、DecreaseKey()三種運算，不管是用哪一種priority queue都是用這一個流程。
@@ -80,15 +80,15 @@ AdjLists存了connectness，而且只能透過source去查destination，查的�
 
 EdgeList存了source、destination、以及weight。
 
-FBNode只存了key，要注意key是dist from src，不是weight of edge。
+FHNode只存了key，要注意key是dist from src，不是weight of edge。
 
-首先，第一個資料的連結，就是FBNode和edge。FBNode本身只存了key，我們希望讓priority queue吐出某條edge，所以必須把key和edge做連結。我們選擇在FBNode上掛一個link連到edge。
+首先，第一個資料的連結，就是FHNode和edge。FHNode本身只存了key，我們希望讓priority queue吐出某條edge，所以必須把key和edge做連結。我們選擇在FHNode上掛一個link連到edge。
 
-再來，DecreaseKey()需要得到FBNode的位址，我們是從adjacentVertex要得到FBNode，因為FBNode是連到Edge，所以我們要有辦法從GNode連到edge，再從edge連到FBNode，所以我們分別還需要建兩個連結。
+再來，DecreaseKey()需要得到FHNode的位址，我們是從adjacentVertex要得到FHNode，因為FHNode是連到Edge，所以我們要有辦法從GNode連到edge，再從edge連到FHNode，所以我們分別還需要建兩個連結。
 
 以上就是所有資料結構之間的連結。
 
-因為FBNode是在dijkstra才建的，而edge是在ReadInput時就建了，所以我們選擇在FBNode上直接同時建立兩邊的連結。
+因為FHNode是在dijkstra才建的，而edge是在ReadInput時就建了，所以我們選擇在FHNode上直接同時建立兩邊的連結。
 
 ```
 // Constructor
@@ -103,9 +103,9 @@ Node* _CreateNode(double key, Edge* edge) {
     node->parent = NULL;
     node->child = NULL;
 
-    // Create connectness for edge and FB node
-    node->link = edge;  // from FBNode to edge
-    edge->link = node;  // from edge to FBNode
+    // Create connectness for edge and FH node
+    node->link = edge;  // from FHNode to edge
+    edge->link = node;  // from edge to FHNode
 
     return node;
 }
