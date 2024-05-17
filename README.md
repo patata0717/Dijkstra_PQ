@@ -51,6 +51,7 @@ ref1和ref2用的方法稍有差異，ref1是把所有的node都設成無限大�
 重新整理Dijkstra的步驟，
 
 Input: AdjLists, EdgeList, Priority Queue(empty)
+
 Output: Dist array, predecessor array
 
 1. Visit src, set dist of src = 0
