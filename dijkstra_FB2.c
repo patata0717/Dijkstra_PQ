@@ -1,5 +1,6 @@
-// dijkstra
+// dijkstra algorithm
 // priority queue; fibonacci heap; (read from file)
+// example input: input.dat
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -54,7 +55,7 @@ typedef struct sNode {
     struct sNode *parent;
     struct sNode *child;
 
-    // Create Connectness between edge and FB node
+    // Connectness with edge
     Edge* link; // linked with an edge
 } Node;
 
@@ -129,7 +130,7 @@ int main(void)
     // Print shortest path
     for (i = 0; i < V; i++) {
         printf("The shortest path from 0 to %d is %d\n", i, graph->dist[i]);
-        puts("Path: ");
+        printf("Path: ");
         j = i;
         while (j != src) {
             printf("%d<-", j);
@@ -567,7 +568,11 @@ void Dijkstra(Graph* graph, int src, FibonacciHeap* FH)
             if (N1 == NULL) {
                 flag1 = true;
             } else {
-                if (graph->visited[N1->link->dest] == true) flag2 = true;
+                if (graph->visited[N1->link->dest] == true) {
+                    flag2 = true;
+                } else {
+                    flag2 = false;
+                }
             }
             if (!flag1 && flag2) _DeleteNode(N1);
         } while (!flag1 && flag2); // keep find if visited
@@ -580,6 +585,7 @@ void Dijkstra(Graph* graph, int src, FibonacciHeap* FH)
     } while (!flag1); // empty queue
 }
 
+// Read input
 void ReadInput_undirected(Graph* graph) {
     int i, j;
     int src, dest;
