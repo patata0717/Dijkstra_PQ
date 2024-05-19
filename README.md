@@ -134,7 +134,11 @@ typedef struct sGNode {
 
 |V| = 8, |E| = 11
 
-![image](https://imgur.com/VHka79k.jpg)
+![image](https://imgur.com/KF9zfPf.jpg)
+
+對比ref2的結果。
+
+![image](https://i.imgur.com/GHZ9pEB.jpg)
 
 跑一下valgrind抓memory leak。
 
