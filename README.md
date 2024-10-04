@@ -124,7 +124,7 @@ typedef struct sGNode {
 
 處理完資料結構，就只剩一些小問題而已
 
-### Path
+### Print Path
 
 如果我們存下所有predecessor，就溯源print出path。所以dijkstra演算法既可以算出shortest path的值，也能實際畫出路徑。
 
