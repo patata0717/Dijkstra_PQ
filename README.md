@@ -38,7 +38,7 @@ Space complexity: O(V+E) AdjLists—O(2V), EdgeList—O(E), Fibonacciheap—O(E)
 
 我們會用到Insert(), DecreaseKey(), ExtractMin()。
 
-簡單介紹一下三種heap，binary heap就是heap sort裡的heap，binomial heap改善了binary heap不易union的特性，犧牲FindMin()去trade off Union()。Fibonacci heap是一種在數學上取巧的heap，ExtractMin實際上是O(n)complexity，但因為前面已經有n次Insert()，它就把O(n)平攤給前面的Insert()，所以得到O(1)。Fibonacci heap的精神就是「不做heapify」，只要遇到需要heapify的地方，就直接建一顆新的樹，樹會越來越多直到遇到下一個ExtractMin()，ExtractMin()會把forest塌縮成binomial heap。
+簡單介紹一下三種heap，binary heap就是heap sort裡的用到的heap、binomial heap改善了binary heap不易union的特性，犧牲FindMin()的complexity去trade off Union()。Fibonacci heap是一種在數學上取巧的heap，ExtractMin實際上是O(n)complexity，但因為前面已經有n次Insert()，它就把O(n)平攤給前面的Insert()，所以得到O(1)。Fibonacci heap的精神就是「不做heapify」，只要遇到需要heapify的地方，就直接建一顆新的樹，樹會越來越多直到遇到下一個ExtractMin()，ExtractMin()會把forest塌縮成binomial heap。
 
 ## Dijkstra和priority queue的整合
 
