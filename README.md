@@ -21,7 +21,7 @@ Dijkstra的步驟：
 
 如果我們能利用priority queue的特性，就可以達到更好的complexity。
 
-![image](https://imgur.com/h55JHNl.jpg)
+<img src="https://imgur.com/h55JHNl.jpg" alt="drawing" width="800"/>
 
 [ref1](https://helios2.mi.parisdescartes.fr/~lomn/Cours/AV/Complements/Heap.pdf)
 
@@ -47,7 +47,7 @@ Space complexity: O(V+E) AdjLists—O(2V), EdgeList—O(E), Fibonacciheap—O(E)
 
 請參考[ref1](https://helios2.mi.parisdescartes.fr/~lomn/Cours/AV/Complements/Heap.pdf)，在第8頁有提供psuedo code。
 
-![image](https://imgur.com/4bxhNYk.jpg)
+<img src="https://imgur.com/4bxhNYk.jpg" alt="drawing" width="800"/>
 
 ref1和ref2用的方法稍有差異，ref1是把所有的node都設成無限大，然後用decrease key來update，fibonacci heap裡操作的是graph node。但這是一個weighted graph，我們需要存edge的值，所以應該用edge來操作會比較適合，也是ref2影片的方法。
 
@@ -141,7 +141,7 @@ typedef struct sGNode {
 
 對比ref2的結果。
 
-![image](https://i.imgur.com/GHZ9pEB.jpg)
+<img src="https://i.imgur.com/GHZ9pEB.jpg" alt="drawing" width="800"/>
 
 跑一下valgrind抓memory leak。
 
@@ -169,20 +169,20 @@ typedef struct sGNode {
 
 ![Imgur](https://imgur.com/6xPzzSf.jpg)
 
-![Imgur](https://imgur.com/Tr3dHFG.jpg)
+<img src="https://imgur.com/Tr3dHFG.jpg" alt="drawing" width="290"/>
 
-![Imgur](https://imgur.com/KJNd2h1.jpg)
+<img src="https://imgur.com/KJNd2h1.jpg" alt="drawing" width="290"/>
 
-![Imgur](https://imgur.com/Z9tlxKA.jpg)
+<img src="https://imgur.com/Z9tlxKA.jpg" alt="drawing" width="290"/>
 
-![Imgur](https://imgur.com/XUgbyxe.jpg)
+<img src="https://imgur.com/XUgbyxe.jpg" alt="drawing" width="290"/>
 
-![Imgur](https://imgur.com/wyWs7NE.jpg)
+<img src="https://imgur.com/wyWs7NE.jpg" alt="drawing" width="290"/>
 
-![Imgur](https://imgur.com/SFmwAls.jpg)
+<img src="https://imgur.com/SFmwAls.jpg" alt="drawing" width="290"/>
 
-通過圖表，可以確認與預期結果沒有明顯錯誤，然而我採用的製圖方式，再加上數據誤差，沒有辦法很明顯的區分出`O(n)`和`O(n*log(n))`，有關這一點，我未來會再思考如何改進。
+通過圖表，可以確認與預期結果沒有明顯錯誤，然而我採用的製圖方式，加上數據誤差，再加上fibonacci heap本身較大的係數，導至沒有辦法很明顯的區分出`O(n)`和`O(n*log(n))`，有關這一點，我未來會再思考如何改進。
 
 ## Reference
 
-演演算法楓葉本(cormen)3rd edition, chapter 19.
+演算法楓葉本(cormen)3rd edition, chapter 19.
