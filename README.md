@@ -1,6 +1,9 @@
 # Dijkstra演算法，以priority queue實作
 
-*5/17寫完fibonacci heap，未來可能更新binomial heap和binary heap*
+*此為[github patat0717/Dijkstra_PQ repository](https://github.com/patata0717/Dijkstra_PQ)的README file*
+
+*2024/5/17寫完fibonacci heap，未來可能更新binomial heap和binary heap*
+*2027/10/7增加測試方法、testcase generator(python script)*
 
 ## 前言
 
@@ -144,4 +147,42 @@ typedef struct sGNode {
 
 ![image](https://imgur.com/CPDgSiF.jpg)
 
-我同時也製作了read from file的版本。
+證明沒有memory leak問題。
+
+## Complexity analysis
+
+我同時也製作了read from file的版本(dijkstra_FB2)，以方便進行complexity的測試。
+
+使用python進行測試檔案的生成，我們輸入`|V|`, `|E|`，程式自動生成測試檔案`g_{V}_{E}.dat`，原理如下：
+
+1. 建立spanning tree：將所有vertex編號並隨機排序，以此建立spanning tree。
+2. 計算出剩餘的edge數，隨機挑選兩個原本沒有相連的點生成edge。
+3. Weight是介於1~10的隨機整數。
+
+下面我們要證明dijkstra演算法使用fibonacci heap的效率是`O(E+VlogV)`，證明方法如下：
+
+1. `|V|` 和 `|E|` 相同增長速率`f(n)`，如果CPU time的增長速率對V和E是`O(f(n)*log(f(n)))`，代表V項或|E|項至少有一項是 `O(n*logn)` speed。
+2. `|V|` 的增長速率是`f(n)`，`|E|` 的增長速率是`f(n*log(n))`，如果CPU time的增長速率對E是`O(n)`，對V是`O(n*log(n))`，代表V項比E項快，**V項是`O(n*logn)`**，E項 <= `O(n)`。
+3. `|V|` 的增長速率是`f(n)`，`|E|` 的增長速率是`f(n2)`，如果CPU time的增長速率對E是`O(n)`，**則證明E項是`O(n)`**。
+
+設`f(x) = n2`，用python script生成測試資料。
+
+![Imgur](https://imgur.com/6xPzzSf.jpg)
+
+![Imgur](https://imgur.com/Tr3dHFG.jpg)
+
+![Imgur](https://imgur.com/KJNd2h1.jpg)
+
+![Imgur](https://imgur.com/Z9tlxKA.jpg)
+
+![Imgur](https://imgur.com/XUgbyxe.jpg)
+
+![Imgur](https://imgur.com/wyWs7NE.jpg)
+
+![Imgur](https://imgur.com/SFmwAls.jpg)
+
+通過圖表，可以確認與預期結果沒有明顯錯誤，然而我採用的製圖方式，再加上數據誤差，沒有辦法很明顯的區分出`O(n)`和`O(n*log(n))`，有關這一點，我未來會再思考如何改進。
+
+## Reference
+
+演算法楓葉本(cormen)3rd edition, chapter 19.
