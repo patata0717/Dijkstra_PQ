@@ -161,8 +161,8 @@ typedef struct sGNode {
 
 下面我們要證明dijkstra演算法使用fibonacci heap的效率是`O(E+VlogV)`，證明方法如下：
 
-1. `|V|` 和 `|E|` 相同增長速率`f(n)`，如果CPU time的增長速率對V和E是`O(f(n)*log(f(n)))`，代表V項或|E|項至少有一項是 `O(n*logn)` speed。
-2. `|V|` 的增長速率是`f(n)`，`|E|` 的增長速率是`f(n*log(n))`，如果CPU time的增長速率對E是`O(n)`，對V是`O(n*log(n))`，代表V項比E項快，**V項是`O(n*logn)`**，E項 <= `O(n)`。
+1. `|V|` 和 `|E|` 相同增長速率`f(n)`，如果CPU time的增長速率對V和E是`O(f(n)*log(f(n)))`，代表V項或|E|項至少有一項是 `O(n*log(n))` speed。
+2. `|V|` 的增長速率是`f(n)`，`|E|` 的增長速率是`f(n*log(n))`，如果CPU time的增長速率對E是`O(n)`，對V是`O(n*log(n))`，代表V項比E項快，**V項是`O(n*log(n))`**，E項 <= `O(n)`。
 3. `|V|` 的增長速率是`f(n)`，`|E|` 的增長速率是`f(n2)`，如果CPU time的增長速率對E是`O(n)`，**則證明E項是`O(n)`**。
 
 設`f(x) = n2`，用python script生成測試資料。
@@ -185,4 +185,4 @@ typedef struct sGNode {
 
 ## Reference
 
-演算法楓葉本(cormen)3rd edition, chapter 19.
+演演算法楓葉本(cormen)3rd edition, chapter 19.
